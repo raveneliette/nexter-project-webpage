@@ -33,3 +33,45 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+
+.container {
+    display: grid;
+
+
+    /*
+    - (auto) is the default if you do not specify anything; Also means that it adapts to the content; It is the same you can write min-content or auto; Both means that there will be enough height space to fit all the content
+    
+    - 40vw(40% of the viewport width) - we are using  wiewport width (vw) unit because we want the section to decrease in increase like adapting to viewport while shrinking or at large viewport
+
+    - We could use media queries to adapt, but it's far easier to think responsive right from the beginning and size the rows and the columns in a responsive and flexible way right from the start
+
+    - So always think about that when you're designing and building content with CSS Grids
+    */
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    
+
+    /*
+    - 14rem = 140px
+
+    - minmax(14rem) - We say that the maximum should be 14rem, but it can be lower. But never below the min content.
+
+    - So the minimum size that it should have in order to fit the content in there.
+
+    - 8rem or 80px for the sidebar
+
+    - We want to have 8 columns, and we want the width of each of these columns to be between their minimum content and 140 pixels
+
+    - When shrinking, it is starting to adapt the viewport width but also it never grows larger than these 14rem or 140pixels for each of the columns
+
+    - 1fr's are just to occupy the remaining of the space. When shrinking they will the be first to start to shrink because they are the one that occupy the fractional space, the remaining space.
+
+    - Sumarry: We started with an eight column layout. Then on the left side we added sidebar and then we added this column here on the left side and on the right side which both occupy the remaining fractional space in order to center these eight columns in the middle of the page.
+
+    - Grid lines can have multiple names
+
+    - full-start - Basically, this is where we want to start the full bleed sections
+    - center-start - The beginning of the eight columns. That's the part that's gonna stay centered in the middle
+    - col-start - Naming all the columns. Creating a set of named lines. It's going to create 8 col-start starting from number 1 to number 8 and same thing for col-end.
+    */
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+}
