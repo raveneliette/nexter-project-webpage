@@ -10,10 +10,27 @@
 
 .feature {
 
+    display: grid;
+
+    /*
+     * min-content - We are using min-content becuase if we eventually wanted to change the width of the icon then automatically the width of this column would adjust without us having to change anything
+
+     * 1fr - And then the rest of the grid, the second column, will simply occupy the rest
+
+     * For the grid-template-rows, we don't really need to specify them because all we want to happen is them to be the size the content. Many times, we don't really define the rows, we just define the columns.
+    */
+    grid-template-columns: min-content 1fr;
+    row-gap: 1.5rem;
+    column-gap: 2.5rem;
+
     &__icon {
         fill: $color-primary;
         width: 4.5rem;
         height: 4.5rem;
+
+        //The -1 only works with an explicit grid. So use span 2 and the -1 won't work becuase we didn't define grid-template-rows
+        grid-row: 1 / span 2;
+        transform: translateY(-1rem);
     }
 
     &__text {
