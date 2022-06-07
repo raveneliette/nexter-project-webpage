@@ -11,7 +11,11 @@
 }
 
 .feature {
+    /* 
+     - We use grid not flexbox because if we're using flexbox it needs to specify the margins between the elements. With grids, we will only use grid gaps to give space between elements.
 
+     - Grids don’t only work for the big layout parts like some people say, but they can also be for very small components as long as they are two-dimensional. Then it makes  a lot of sense using grids for that.
+    */
     display: grid;
 
     /*
