@@ -9,6 +9,17 @@
         grid-column: col-start 5 / full-end;
 
         padding: 6rem 12rem;
+
+        // Insted of 4 lines CSS Flexbox we only have 3 in CSS Grid
+        // But you can go with whatever makes more sense to you in choosing between grid and flexbox when it's one-dimensional layout.
+        display: grid;
+        align-content: center;
+        justify-items: start;
+        
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;
     }
 
     &__text {
