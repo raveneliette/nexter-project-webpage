@@ -11,11 +11,11 @@
 
     // The first row has fractional unit 1fr
     // Second, we want to be sized according the the content
-    grid-template-rows: 1fr min-content 6rem 1fr;
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
 
     // One column, and we want to be just the size that it has to have in order to fit the content
     // It has the size in order to fit the content and the largest piece of content is max-content without having to do any line breaks.
-    grid-template-columns: max-content;
+    grid-template-columns: minmax(min-content, max-content); //We say here that the column should never be more narrow than the content
     row-gap: 1.5rem;
     justify-content: center;
 
@@ -52,9 +52,11 @@
         grid-template-columns: repeat(4, 1fr);
         column-gap: 3rem;
         justify-items: center;
+        align-items: center;
 
         img {
-            height: 2.5rem;
+            max-height: 2.5rem; //The height can be 2.5rem but it can also be less than that
+            max-width: 100%; //Same also here
             filter: brightness(70%);
         }
     }
