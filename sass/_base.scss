@@ -18,6 +18,7 @@ $font-display: 'Josefin Sans', sans-serif;
 $bp-largest: 75em;// 1200px / 16px(Default font-size of the brwoser) = 75em
 $bp-large: 62.5em;// 1000px / 16px = 62.5em
 $bp-medium: 50em;// 800px / 16px = 50em
+$bp-small: 37.5em;// 600px / 16px = 37.5em
 
 *,
 *::before,
@@ -93,7 +94,7 @@ body {
 
     @media only screen and (max-width: $bp-medium) {
         // grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content min-content repeat(3, min-content);
-        
+
         /*
          * Get rid of all the min-content because the automatic placement already will take care of that and we don't have to worry about it
          * So the only two rows that we want to style in terms of size, by ourselves, are the first two.
