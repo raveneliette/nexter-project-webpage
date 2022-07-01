@@ -92,6 +92,13 @@ body {
     }
 
     @media only screen and (max-width: $bp-medium) {
-        grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content 40vw repeat(3, min-content);
+        // grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content min-content repeat(3, min-content);
+        
+        /*
+         * Get rid of all the min-content because the automatic placement already will take care of that and we don't have to worry about it
+         * So the only two rows that we want to style in terms of size, by ourselves, are the first two.
+         * So the sidebar and the header, and the rest will be sized based on the content
+         */
+        grid-template-rows: 6rem calc(100vh - 6rem);
     }
 }
