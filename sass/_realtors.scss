@@ -24,7 +24,11 @@
             //We can put more than one track in these repeat function and they will then be multiplied. So it end up with six column tracks here below instead of the two that we started with
             grid-template-columns: repeat(3, min-content max-content);//Repeat the min-content(images) & max-content(texts) 3 times
         }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: min-content max-content;
         }
+    }
 
     &__img {
         width: 7rem;
