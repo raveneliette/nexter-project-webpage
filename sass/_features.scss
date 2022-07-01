@@ -3,14 +3,28 @@
 
     margin: 15rem 0;
 
-    display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 6rem;
-    align-items: start;
+    //If the browsers supports display grid,
+    //And if it does, then we want the code below to execute
+    @supports(display: grid) {
+        display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 6rem;
+        align-items: start;
+    }
 }
 
 .feature {
+    float: left;//This float here, we don't have to reset it because it's actually ignored now that the feature selector is a grid item 
+    width: 33.3333%;
+    margin-bottom: 6rem;
+
+    //So what gets ignored by CSS Grid and Flexbox are floats, display, inline-block, display: table-cell, and vertical-align altogether.
+    @supports(display: grid) {
+        width: auto;
+        margin-bottom: 0;
+    }
+
     /* 
      - We use grid not flexbox because if we're using flexbox it needs to specify the margins between the elements. With grids, we will only use grid gaps to give space between elements.
 
