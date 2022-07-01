@@ -19,6 +19,11 @@
         column-gap: 2rem;
         row-gap: 5vh; //Why? because we want the margin/spacing to change whenever we change the height of the viewport
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            //We can put more than one track in these repeat function and they will then be multiplied. So it end up with six column tracks here below instead of the two that we started with
+            grid-template-columns: repeat(3, min-content max-content);//Repeat the min-content(images) & max-content(texts) 3 times
+        }
         }
 
     &__img {
